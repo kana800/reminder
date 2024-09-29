@@ -162,4 +162,4 @@ cython_debug/
 # file with the passwords :|
 env.py
 # file with the reminders
-remind_*
+data/
