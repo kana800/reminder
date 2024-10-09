@@ -72,6 +72,9 @@ if __name__ == "__main__":
         else:
             reminder_dict[name] = [summary]
     startdt = datetime.today().strftime("%d-%m-%Y")
-    with open(f'{DATAPATH}\\{startdt}-ra.json', 'w') as f:
-        json.dump(reminder_dict, f)
+    if len(reminder_dict) != 0:
+        with open(f'{DATAPATH}\\{startdt}-ra.json', 'w') as f:
+            json.dump(reminder_dict, f)
+    else:
+        sys.stdout.write(str(-1))
     sys.exit(0)

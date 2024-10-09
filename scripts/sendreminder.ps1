@@ -8,8 +8,15 @@ $fileDirectory = Resolve-Path -Path "g:\repositories\reminder\data\"
 $fileName = $fileDirectory.Path + $currentDate + "-ra.json"
 # running reminder script to generate content
 Write-Host "Fetching for reminders..."
-#$pyRemOutput = & $pyReminderExecPath $pyReminderScriptPath
-#Write-Host "Sending the messages..."
-Write-Host $fileName
-$pyWAOutput = & $pyWAExecPath $pyWAPath $fileName
-Write-Host "Done"
+$pyRemOutput = & $pyReminderExecPath $pyReminderScriptPath
+if ("-1" -ne $pyRemOutput )
+{
+    Write-Host $fileName
+    Write-Host "Sending the messages..."
+    $pyWAOutput = & $pyWAExecPath $pyWAPath $fileName
+    Write-Host "Done"
+} 
+else 
+{
+    Write-Host "No reminders Found"
+}
