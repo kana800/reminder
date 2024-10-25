@@ -4,14 +4,9 @@ $pyWAExecPath = Resolve-Path -Path "g:\repositories\automate-whatsapp-messages\.
 $currentDate = Get-Date -Format "dd-MM-yyyy"
 $fileDirectory = Resolve-Path -Path "g:\repositories\reminder\data\"
 $fileName = $fileDirectory.Path + $currentDate + "-ra.json"
-if ("-1" -ne $pyRemOutput )
-{
-    Write-Host $fileName
-    Write-Host "Sending the messages..."
-    $pyWAOutput = & $pyWAExecPath $pyWAPath $fileName
-    Write-Host "Done"
-} 
-else 
-{
-    Write-Host "No reminders Found"
+if (Test-Path $fileName){
+    $pyOutput = &$pyWAExecPath $pyWAPath $fileName
+    Write-Output $pyOutput
+} else {
+    Write-Warning "Reminder File Doesn't Exist Skipping..."
 }
