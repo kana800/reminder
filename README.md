@@ -6,6 +6,13 @@ for example:
 1. remind `person-1` to buy milk; this will send a message `person-1` on _reminder date_.
 2. remind `person-1` on their birthday;
 
+
+![](.images/reminder-img-2.jpg)
+
+![](.images/reminder-img-3.jpg)
+
+---
+
 ### How It Works?
 
 1. Grab all the events for today from the `CalDav` server
